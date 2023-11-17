@@ -20,6 +20,10 @@ Good luck!
 This is the inspiration for this 
 
 
-## Composer.json is your source of truth
+## Sources of "truth"
 
+### Composer.json
 Check it out to see other libraries installed and then what you can do with it
+
+### PHPUnit Tests
+Check them out for a sense of how things work

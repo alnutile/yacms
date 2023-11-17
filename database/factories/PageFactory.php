@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class PageFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->name,
+            'published' => fake()->boolean,
+            'slug' => fake()->slug,
+            'author_id' => User::factory(),
         ];
     }
 }
