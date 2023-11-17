@@ -1,0 +1,19 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app
+
+    # The level 8 is the highest level
+    level: 5
+
+    #ignoreErrors:
+
+    excludePaths:
+        - vendor
+        - app/Actions/*
+        - app/Http/Resources/BookResource.php
+
+    checkMissingIterableValueType: false
