@@ -27,12 +27,14 @@ class StatamicImportCommand extends Command
      */
     public function handle()
     {
-        $path = $this->argument("file_path");
 
+        $path = $this->argument('file_path');
+        $this->info("Starting import");
         $reader = Reader::createFromPath($path, 'r');
         $reader->setHeaderOffset(0);
         $records = $reader->getRecords();
 
+        /** @phpstan-ignore-next-line */
         StatamicImporter::handle($records);
     }
 }

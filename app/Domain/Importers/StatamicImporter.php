@@ -33,7 +33,7 @@ class StatamicImporter
 
             $title = data_get($item, 'Title');
 
-            if(!empty($title)) {
+            if (! empty($title)) {
                 $page = Page::firstOrCreate([
                     'external_id' => $item['ID'],
                 ], [
@@ -56,14 +56,14 @@ class StatamicImporter
     {
         $tags = data_get($item, 'Tags', []);
 
-        if (!empty($tags)) {
+        if (! empty($tags)) {
             $tags = json_decode($tags);
         } else {
             $tags = [];
         }
 
-        if($tags === null) {
-            logger("Bug with these tags", $item);
+        if ($tags === null) {
+            logger('Bug with these tags', $item);
             $tags = [];
         }
 

@@ -25,7 +25,7 @@ class StatamicImporterTest extends TestCase
     {
         $user = User::factory()->create();
         $record = get_fixture('importable.json');
-        $record['Tags'] = "";
+        $record['Tags'] = '';
         $this->assertDatabaseCount('pages', 0);
         StatamicImporter::handle([$record]);
         $this->assertDatabaseCount('pages', 1);
