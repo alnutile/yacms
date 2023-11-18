@@ -1,0 +1,12 @@
+{
+    "ID": "cc913d37-b5c2-4c47-81c6-1ee8764ad785",
+    "Hero Image": "default-hero.jpg",
+    "Title": "DrupalCamp Western Mass",
+    "Bard Content": "",
+    "Content": "I will be presenting on 2 topics.\n\nUsing a VM for development the url can be seen below.\nhttp:\/\/drupalcampma.com\/virtual-box-ubuntu-local-development-strategy\n\njQuery\/Ajax without using the Drupal FAPI\nhttp:\/\/drupalcampma.com\/using-jquery-and-ajax-outside-drupal-fapi\n\n\nThough this drupal backbone session looks great!\nhttp:\/\/drupalcampma.com\/drupal-and-backbonejs",
+    "Author": "d9942950-fa6a-4191-ad8d-ce470afe5a46",
+    "Template": "post",
+    "Slug": "",
+    "Tags": "[\"presentation\", \"Laravel\"]",
+    "Date": ""
+}

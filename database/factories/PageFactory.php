@@ -22,6 +22,7 @@ class PageFactory extends Factory
             'title' => fake()->words(3, true),
             'published' => fake()->boolean,
             'slug' => fake()->slug,
+            'external_id' => fake()->uuid,
             'author_id' => User::factory(),
             'blocks' => get_fixture('page_blocks.json'),
         ];

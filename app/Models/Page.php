@@ -16,6 +16,7 @@ use Spatie\Tags\HasTags;
 /**
  * @property string $title
  * @property string $slug
+ * @property string $external_id
  * @property bool $published
  * @property array $blocks
  * @property Carbon $deleted_at
