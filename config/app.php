@@ -43,7 +43,7 @@ return [
     */
 
     'debug' => (bool) env('APP_DEBUG', false),
-    'logo' => env('APP_LOGO', "/logo.svg"),
+    'logo' => env('APP_LOGO', '/logo.svg'),
 
     /*
     |--------------------------------------------------------------------------

@@ -3,10 +3,8 @@
 namespace Tests\Feature;
 
 use App\Models\Page;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use Inertia\Testing\AssertableInertia as Assert;
+use Tests\TestCase;
 
 class PagesControllerTest extends TestCase
 {
@@ -19,12 +17,10 @@ class PagesControllerTest extends TestCase
             ->count(10)
             ->create();
 
-
-        $response = $this->get(route("pages.index"))
+        $response = $this->get(route('pages.index'))
             ->assertOk()
             ->assertInertia(fn (Assert $page) => $page
-            ->has("pages.data"))
-        ;
+                ->has('pages.data'));
 
         $response->assertStatus(200);
     }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Facades\App\Domain\Render\RenderContent;
 use App\Models\Page;
+use Facades\App\Domain\Render\RenderContent;
 
 class PageController extends Controller
 {

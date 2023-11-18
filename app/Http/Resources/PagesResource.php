@@ -18,10 +18,11 @@ class PagesResource extends JsonResource
     {
         /** @var IntroDto $pageIntro */
         $pageIntro = RenderContent::getIntro($this->resource);
+
         return [
             'id' => $this->id,
-            'url' => route("frontend", [
-                'slug' => $this->slug
+            'url' => route('frontend', [
+                'slug' => $this->slug,
             ]),
             'title' => $this->title,
             'intro' => $pageIntro->intro,

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\PagesResource;
 use App\Models\Page;
-use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
@@ -15,10 +14,9 @@ class PagesController extends Controller
             ->latest()
             ->paginate(10);
 
-
         return inertia('Page/Index', [
             'pages' => PagesResource::collection($pages),
-            'title' => "Posts",
+            'title' => 'Posts',
         ]);
     }
 }

@@ -32,9 +32,9 @@ class HandleInertiaRequests extends Middleware
     {
         return [
             ...parent::share($request),
-            'app_url' => config("app.url"),
-            'app_name' => config("app.name"),
-            'logo' => config("app.logo"),
+            'app_url' => config('app.url'),
+            'app_name' => config('app.name'),
+            'logo' => config('app.logo'),
             'ziggy' => fn () => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),

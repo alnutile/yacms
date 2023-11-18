@@ -17,10 +17,9 @@ use Inertia\Inertia;
 |
 */
 
-
-Route::get("/about", function() {
+Route::get('/about', function () {
     return Inertia::render('About/Show');
-})->name("about");
+})->name('about');
 
 Route::get('/posts', PagesController::class)->name('pages.index');
 
@@ -28,7 +27,7 @@ Route::get('/{slug}', PageController::class)->name('frontend');
 
 Route::get('/', function () {
     return Inertia::render('Home/Show');
-})->name("home");
+})->name('home');
 
 Route::middleware([
     'auth:sanctum',

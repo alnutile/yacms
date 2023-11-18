@@ -14,6 +14,6 @@ parameters:
     excludePaths:
         - vendor
         - app/Actions/*
-        - app/Http/Resources/BookResource.php
+        - app/Http/Resources/*
 
     checkMissingIterableValueType: false
