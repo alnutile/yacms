@@ -4,10 +4,13 @@ namespace App\Models;
 
 use App\Events\PageUpdatedEvent;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
+use Facades\App\Domain\Render\RenderContent;
 use Spatie\Tags\HasTags;
 
 /**
@@ -25,6 +28,7 @@ class Page extends Model
     use HasFactory;
     use HasTags;
     use SoftDeletes;
+    use Searchable;
 
     protected $guarded = [];
 
@@ -36,8 +40,37 @@ class Page extends Model
         'blocks' => 'array',
     ];
 
+    public function scopePublished($query) {
+        return $query->where("published", true);
+    }
+
+
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Determine if the model should be searchable.
+     */
+    public function shouldBeSearchable(): bool
+    {
+        return $this->published;
+    }
+
+    public function toSearchableArray(): array
+    {
+        $content = RenderContent::handle($this);
+
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'blocks' => $content,
+        ];
+    }
+
+    protected function makeAllSearchableUsing(Builder $query): Builder
+    {
+        return $query->with('tags');
     }
 }

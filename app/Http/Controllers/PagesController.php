@@ -9,14 +9,15 @@ class PagesController extends Controller
 {
     public function __invoke()
     {
-        $pages = Page::query()
-            ->wherePublished(true)
+        $search = request()->search;
+        $pages = Page::search($search)
             ->latest()
             ->paginate(10);
 
         return inertia('Page/Index', [
             'pages' => PagesResource::collection($pages),
             'title' => 'Posts',
+            'search' => $search
         ]);
     }
 }

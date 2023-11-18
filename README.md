@@ -57,3 +57,11 @@ php artisan db:seed --class=PageSeeder
 ```
 
 ![](/docs/pages.png)
+
+
+## Scout
+
+```bash 
+php artisan scout:delete-index "App\Models\Page"
+php artisan scout:import "App\Models\Page"
+```

@@ -17,6 +17,7 @@
         "laravel/horizon": "^5.21",
         "laravel/jetstream": "^4.1",
         "laravel/sanctum": "^3.3",
+        "laravel/scout": "^10.5",
         "laravel/tinker": "^2.8",
         "spatie/laravel-data": "^3.9",
         "tightenco/ziggy": "^1.0"
