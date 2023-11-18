@@ -13,6 +13,7 @@ class PageTest extends TestCase
     public function test_factory()
     {
         $model = Page::factory()->create();
+        $this->assertNotEmpty($model->blocks);
         $this->assertNotNull($model->author->id);
     }
 }

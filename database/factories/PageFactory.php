@@ -22,6 +22,7 @@ class PageFactory extends Factory
             'published' => fake()->boolean,
             'slug' => fake()->slug,
             'author_id' => User::factory(),
+            'blocks' => get_fixture('page_blocks.json'),
         ];
     }
 }

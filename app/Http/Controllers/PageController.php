@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
-use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -11,10 +10,13 @@ class PageController extends Controller
     {
         $page = Page::whereSlug($slug)->first();
 
-        if(!$page) {
+        if (! $page) {
             abort(404);
         }
 
-        return inertia("Page/Show");
+        return inertia('Page/Show', [
+            'page' => $page,
+            'title' => $page->title,
+        ]);
     }
 }

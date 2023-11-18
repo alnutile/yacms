@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\PageUpdatedEvent;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -24,6 +25,10 @@ class Page extends Model
     use SoftDeletes;
 
     protected $guarded = [];
+
+    protected $dispatchesEvents = [
+        'updated' => PageUpdatedEvent::class,
+    ];
 
     protected $casts = [
         'blocks' => 'array',

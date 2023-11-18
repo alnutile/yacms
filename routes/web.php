@@ -16,7 +16,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get("/{slug}", PageController::class)->name("frontend");
+Route::get('/{slug}', PageController::class)->name('frontend');
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),

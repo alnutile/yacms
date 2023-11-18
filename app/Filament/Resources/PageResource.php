@@ -3,21 +3,17 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
-use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
-use App\Models\Product;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
 
 class PageResource extends Resource
 {
@@ -30,25 +26,26 @@ class PageResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Section::make()->schema([
-                    TextInput::make("title")
+                    TextInput::make('title')
                         ->required()
                         ->reactive()
                         ->autocomplete(false)
-                        ->afterStateUpdated(function($state, Forms\Set $set){
+                        ->afterStateUpdated(function ($state, Forms\Set $set) {
                             $slug = $set('slug', str($state)->slug()->toString());
-                            while(Page::whereSlug($slug)->exists()) {
+                            while (Page::whereSlug($slug)->exists()) {
                                 $slug = $set('slug', str($state)->slug()->toString());
                             }
+
                             return $slug;
-                         }
+                        }
                         ),
-                    TextInput::make("slug")
+                    TextInput::make('slug')
                         ->disabled()
                         ->required(),
-                    Select::make("author_id")
-                        ->relationship(name: 'author', titleAttribute: "name")
+                    Select::make('author_id')
+                        ->relationship(name: 'author', titleAttribute: 'name')
                         ->required(),
-                    Forms\Components\Section::make("Content")->schema([
+                    Forms\Components\Section::make('Content')->schema([
                         Forms\Components\Builder::make('blocks')
                             ->blocks([
                                 Forms\Components\Builder\Block::make('heading')
@@ -93,7 +90,7 @@ class PageResource extends Resource
                                 Forms\Components\Builder\Block::make('mark_down_paragraph')
                                     ->schema([
                                         MarkdownEditor::make('blocks')
-                                            ->label("Markdown Editor")
+                                            ->label('Markdown Editor')
                                             ->toolbarButtons([
                                                 'attachFiles',
                                                 'blockquote',
@@ -124,9 +121,9 @@ class PageResource extends Resource
                                             ->label('Alt text')
                                             ->required(),
                                     ]),
-                            ])
-                    ])
-                ])
+                            ]),
+                    ]),
+                ]),
             ]);
     }
 
