@@ -65,3 +65,24 @@ php artisan db:seed --class=PageSeeder
 php artisan scout:delete-index "App\Models\Page"
 php artisan scout:import "App\Models\Page"
 ```
+
+
+## Importers
+
+### Statamic
+
+> Add a user first since these will be assigned to that user
+
+The class is `StatamicImporter` and the command is `StatamicImportCommand`
+
+I exported my data using `steadfastcollective/statamic-csv-exporter` and it went well.
+
+Just mess around with the code till it matches your columns
+
+``` 
+php artisan app:statamic-import-command /Users/alfrednutile/Downloads/blog-fixed.csv
+```
+
+and see what happens
+
+Make sure to run your indexers see above
