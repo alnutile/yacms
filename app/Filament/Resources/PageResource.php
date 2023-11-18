@@ -114,7 +114,9 @@ class PageResource extends Resource
                                             ->label('Image')
                                             ->image()
                                             ->imageEditor()
+                                            /** @phpstan-ignore-next-line */
                                             ->imageEditorViewportWidth('1920')
+                                            /** @phpstan-ignore-next-line */
                                             ->imageEditorViewportHeight('1080')
                                             ->required(),
                                         TextInput::make('alt')
