@@ -55,3 +55,5 @@ Might be some things here since Flowbite sets up items for the theme etc
 ```bash 
 php artisan db:seed --class=PageSeeder
 ```
+
+![](/docs/pages.png)
