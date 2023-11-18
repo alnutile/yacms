@@ -19,7 +19,6 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Spatie\Tags\Tag;
 
 class PageResource extends Resource
 {
@@ -195,17 +194,19 @@ class PageResource extends Resource
                  * { en: "Foo" } and not just "Foo"
                  */
                 SelectFilter::make('tags')
+                    /** @phpstan-ignore-next-line */
                     ->options(\App\Models\Tag::all()
                         ->pluck('name', 'id')
                         ->unique())
                     ->query(function (Builder $query, array $data): Builder {
                         $tag = (int) data_get($data, 'value');
-                        return $query->when($tag, function($query) use ($tag) {
-                            $query->whereHas("tags", function($query) use ($tag) {
-                                $query->where("tags.id", '=', $tag);
+
+                        return $query->when($tag, function ($query) use ($tag) {
+                            $query->whereHas('tags', function ($query) use ($tag) {
+                                $query->where('tags.id', '=', $tag);
                             });
                         });
-                    })
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
