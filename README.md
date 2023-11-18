@@ -6,6 +6,8 @@ https://filamentphp.com/ and https://laravel.com (oh and JetStream) plus an libr
 
 ![](/docs/cms.gif)
 
+[video](https://www.dropbox.com/scl/fi/ogfm34zlkmjfdginwi2ob/cms.mov.gif?rlkey=idj3drd7m0x3jpmjqqyhgqtnl&dl=0)
+
 The goal will to not be like TwillCMS or Statamic CMS and have docs that seem to have some 'gray' areas
 or do things differently than Laravel and then not really explain how to do it. (looking at your TwillCMS).
 
