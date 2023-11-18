@@ -14,7 +14,12 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\SpatieTagsColumn;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Spatie\Tags\Tag;
 
 class PageResource extends Resource
 {
@@ -174,13 +179,33 @@ class PageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('title')->searchable(),
                 Tables\Columns\TextColumn::make('author.name'),
-                Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\ToggleColumn::make('published'),
+                SpatieTagsColumn::make('tags'),
             ])
             ->filters([
-                //
+                Filter::make('is_published')
+                    ->query(fn (Builder $query): Builder => $query->where('published', true)),
+
+                /**
+                 * @NOTE
+                 * This got a bit complicated
+                 * since the Filter would show the object
+                 * { en: "Foo" } and not just "Foo"
+                 */
+                SelectFilter::make('tags')
+                    ->options(\App\Models\Tag::all()
+                        ->pluck('name', 'id')
+                        ->unique())
+                    ->query(function (Builder $query, array $data): Builder {
+                        $tag = (int) data_get($data, 'value');
+                        return $query->when($tag, function($query) use ($tag) {
+                            $query->whereHas("tags", function($query) use ($tag) {
+                                $query->where("tags.id", '=', $tag);
+                            });
+                        });
+                    })
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
