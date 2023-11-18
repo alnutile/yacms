@@ -34,7 +34,7 @@ class PageResource extends Resource
                 Forms\Components\Section::make()->schema([
                     TextInput::make('title')
                         ->required()
-                        ->reactive()
+                        ->live(onBlur: true)
                         ->autocomplete(false)
                         ->afterStateUpdated(function ($state, Forms\Set $set) {
                             $slug = $set('slug', str($state)->slug()->toString());
