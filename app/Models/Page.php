@@ -62,10 +62,12 @@ class Page extends Model
     {
         $content = RenderContent::handle($this);
 
+        $tags = $this->tags->pluck("name")->implode(",");
+
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'blocks' => $content,
+            'blocks' => $content . $tags,
         ];
     }
 

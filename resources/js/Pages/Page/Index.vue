@@ -63,7 +63,10 @@ const searchIt = () => {
 
                 </div>
 
-                <div v-for="(page, index) in pages.data" :key="page.id">
+                <div v-if="pages.data.length === 0" class="mt-10 text-xl text-gray-500 px-4 py-10">
+                    No results 😱
+                </div>
+                <div v-for="(page, index) in pages.data" :key="page.id" v-else>
                     <section class="">
                         <div class="gap-8 py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-12 sm:py-16 lg:px-6">
                             <div class="w-full h-[300px] col-span-4" v-if="index % 2 === 0">
@@ -71,7 +74,7 @@ const searchIt = () => {
                             </div>
                             <div class="mt-4 md:mt-0 mx-auto h-full w-full relative  col-span-8">
                                 <div class="flex justify-between mx-auto items-center mb-4 ">
-                                    <h2 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{{ page.title }}</h2>
+                                    <h2 class="text-2xl tracking-tight font-extrabold text-gray-900 dark:text-white">{{ page.title }}</h2>
                                     <div class="flex justify-between">
                                         <Tags :tags="page.tags"/>
                                     </div>
@@ -92,7 +95,7 @@ const searchIt = () => {
                     </section>
                 </div>
 
-                <Pagination :links="pages.links" :meta="pages.meta"/>
+                <Pagination :links="pages.links" :meta="pages.meta" class="mt-5"/>
             </div>
     </AppLayout>
 </template>

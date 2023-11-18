@@ -24,7 +24,7 @@ defineProps({
                 <h1 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
                     {{ title }}
                 </h1>
-                <div class="flex">
+                <div class="flex items-center">
                     <Tags :tags="tags"/>
                 </div>
             </div>
@@ -32,4 +32,5 @@ defineProps({
             </div>
         </div>
     </AppLayout>
+
 </template>

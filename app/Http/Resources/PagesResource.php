@@ -24,7 +24,7 @@ class PagesResource extends JsonResource
             'url' => route('frontend', [
                 'slug' => $this->slug,
             ]),
-            'title' => $this->title,
+            'title' => str($this->title)->limit(35)->toString(),
             'intro' => $pageIntro->intro,
             'image' => $pageIntro->image,
             'tags' => $this->tags,
