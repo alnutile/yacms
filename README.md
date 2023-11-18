@@ -15,6 +15,15 @@ work without a crazy amount of custom work on my end (maybe none)
 Good luck!
 
 
+## Libraries
+
+  * Laravel
+  * Filament
+  * Flowbite (frontend helper)
+  * Inertia/Vue if you want for front end else use what you want 
+  * JetStream
+
+
 ## Builder and Pages
 
 This is the inspiration for this 
@@ -27,3 +36,8 @@ Check it out to see other libraries installed and then what you can do with it
 
 ### PHPUnit Tests
 Check them out for a sense of how things work
+
+
+### Tailwind config?
+
+Might be some things here since Flowbite sets up items for the theme etc

@@ -21,5 +21,6 @@ class PageUpdatedEventListener
     public function handle(PageUpdatedEvent $event): void
     {
         Cache::forget('page_'.$event->page->id);
+        Cache::forget('page_intro_'.$event->page->id);
     }
 }

@@ -65,6 +65,38 @@ class PageResource extends Resource
                                             ->required(),
                                     ])
                                     ->columns(2),
+                                Forms\Components\Builder\Block::make('intro')
+                                    ->schema([
+                                        MarkdownEditor::make('blocks')
+                                            ->label('Intro')
+                                            ->toolbarButtons([
+                                                'attachFiles',
+                                                'blockquote',
+                                                'bold',
+                                                'bulletList',
+                                                'codeBlock',
+                                                'heading',
+                                                'italic',
+                                                'link',
+                                                'orderedList',
+                                                'redo',
+                                                'strike',
+                                                'table',
+                                                'undo',
+                                            ])
+                                            ->required(),
+
+                                        FileUpload::make('url')
+                                            ->label('Image')
+                                            ->image()
+                                            ->imageEditor()
+                                            /** @phpstan-ignore-next-line */
+                                            ->imageEditorViewportWidth('1920')
+                                            /** @phpstan-ignore-next-line */
+                                            ->imageEditorViewportHeight('1080')
+                                            ->required(),
+                                    ])
+                                    ->columns(2),
                                 Forms\Components\Builder\Block::make('paragraph')
                                     ->schema([
                                         RichEditor::make('blocks')
@@ -86,7 +118,12 @@ class PageResource extends Resource
                                                 'undo',
                                             ])->required(),
                                     ]),
-
+                                Forms\Components\Builder\Block::make('blockquote')
+                                    ->schema([
+                                        Forms\Components\Textarea::make('blocks')
+                                            ->label('Blockquote')
+                                            ->required(),
+                                    ]),
                                 Forms\Components\Builder\Block::make('mark_down_paragraph')
                                     ->schema([
                                         MarkdownEditor::make('blocks')
@@ -122,6 +159,8 @@ class PageResource extends Resource
                                         TextInput::make('alt')
                                             ->label('Alt text')
                                             ->required(),
+                                        Forms\Components\Toggle::make('center')
+                                            ->label('Center'),
                                     ]),
                             ]),
                     ]),

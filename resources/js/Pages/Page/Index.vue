@@ -2,7 +2,7 @@
 import AppLayout from '@/Layouts/GuestLayout.vue';
 
 defineProps({
-    page: String,
+    pages: String,
     title: String
 });
 
@@ -17,7 +17,7 @@ defineProps({
         </template>
 
         <div>
-            <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8 dark:text-gray-300  prose" v-html="page">
+            <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8 dark:text-gray-300">
             </div>
         </div>
     </AppLayout>
