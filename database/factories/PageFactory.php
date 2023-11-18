@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Page;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,7 +19,7 @@ class PageFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->name,
+            'title' => fake()->words(3, true),
             'published' => fake()->boolean,
             'slug' => fake()->slug,
             'author_id' => User::factory(),
@@ -32,6 +33,18 @@ class PageFactory extends Factory
             return [
                 'published' => true,
             ];
+        });
+    }
+
+    /**
+     * Configure the model factory.
+     */
+    public function configure(): static
+    {
+        return $this->afterMaking(function (Page $page) {
+            // ...
+        })->afterCreating(function (Page $page) {
+            $page->attachTags([fake()->word, fake()->word]);
         });
     }
 }

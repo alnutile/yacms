@@ -41,3 +41,10 @@ Check them out for a sense of how things work
 ### Tailwind config?
 
 Might be some things here since Flowbite sets up items for the theme etc
+
+
+### Seeding
+
+```bash 
+php artisan db:seed --class=PageSeeder
+```

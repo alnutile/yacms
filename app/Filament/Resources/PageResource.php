@@ -9,6 +9,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -42,6 +43,7 @@ class PageResource extends Resource
                     TextInput::make('slug')
                         ->disabled()
                         ->required(),
+                    SpatieTagsInput::make('tags'),
                     Select::make('author_id')
                         ->relationship(name: 'author', titleAttribute: 'name')
                         ->required(),

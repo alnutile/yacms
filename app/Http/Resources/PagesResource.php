@@ -27,6 +27,7 @@ class PagesResource extends JsonResource
             'title' => $this->title,
             'intro' => $pageIntro->intro,
             'image' => $pageIntro->image,
+            'tags' => $this->tags,
         ];
     }
 }

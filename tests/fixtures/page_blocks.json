@@ -1,8 +1,8 @@
 [
     {
         "data": {
-            "url": "01HFG2KVN6NVTEA95HCWWD86Z9.jpg",
-            "blocks": "Some intro text can go here in markdown...."
+            "url": "01HFH88NY63XA488P6B3KN729J.jpg",
+            "blocks": "In a groundbreaking development, Quantum Computing Inc. (QCI) unveiled its latest quantum processor, the QubitPro-X, setting a new standard in computational speed and efficiency. The QubitPro-X boasts a remarkable 128-qubit architecture, capable of solving complex calculations in minutes that would take traditional supercomputers years to process. This breakthrough has far-reaching implications, particularly in the fields of cryptography, climate modeling, and pharmaceutical research. Industry experts are hailing the QubitPro-X as a game-changer, predicting a revolution in AI-driven data analysis and a significant leap forward in the race for quantum supremacy.\n"
         },
         "type": "intro"
     },

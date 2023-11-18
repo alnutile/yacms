@@ -18,6 +18,7 @@ class PageController extends Controller
         return inertia('Page/Show', [
             'page' => RenderContent::handle($page),
             'title' => $page->title,
+            'tags' => $page->tags
         ]);
     }
 }

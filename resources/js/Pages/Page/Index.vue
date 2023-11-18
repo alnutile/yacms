@@ -1,6 +1,8 @@
 <script setup>
 import AppLayout from '@/Layouts/GuestLayout.vue';
 import { Link } from "@inertiajs/vue3";
+import Pagination from "@/Components/Pagination.vue";
+import Tags from "@/Components/Tags.vue";
 
 defineProps({
     pages: String,
@@ -17,16 +19,20 @@ defineProps({
             </h2>
         </template>
 
-        <div>
-            <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8 dark:text-gray-300">
+            <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8 dark:text-gray-300 bg-white dark:bg-gray-900 mb-10 mt-10">
                 <div v-for="(page, index) in pages.data" :key="page.id">
-                    <section class="bg-white dark:bg-gray-900">
+                    <section class="">
                         <div class="gap-8 py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-12 sm:py-16 lg:px-6">
                             <div class="w-full h-[300px] col-span-4" v-if="index % 2 === 0">
                                 <img class="w-full h-full object-contain" :src="page.image" alt="dashboard image">
                             </div>
                             <div class="mt-4 md:mt-0 mx-auto h-full w-full relative  col-span-8">
-                                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{{ page.title }}</h2>
+                                <div class="flex justify-between mx-auto items-center mb-4 ">
+                                    <h2 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{{ page.title }}</h2>
+                                    <div class="flex justify-between">
+                                        <Tags :tags="page.tags"/>
+                                    </div>
+                                </div>
                                 <div v-html="page.intro"></div>
                                 <Link :href="page.url"
                                       :class="{'right-0' : index % 2 === 0 }"
@@ -42,7 +48,8 @@ defineProps({
                         </div>
                     </section>
                 </div>
+
+                <Pagination :links="pages.links" :meta="pages.meta"/>
             </div>
-        </div>
     </AppLayout>
 </template>

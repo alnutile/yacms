@@ -1,9 +1,11 @@
 <script setup>
 import AppLayout from '@/Layouts/GuestLayout.vue';
+import Tags from "@/Components/Tags.vue";
 
 defineProps({
     page: String,
-    title: String
+    title: String,
+    tags: Array
 });
 
 </script>
@@ -16,7 +18,12 @@ defineProps({
             </h2>
         </template>
 
-        <div>
+        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8 dark:text-gray-300 bg-white dark:bg-gray-900 mb-10 mt-10">
+
+        <div class="flex gap-2 justify-end -mb-16">
+
+                <Tags :tags="tags"/>
+            </div>
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8 dark:text-gray-300  prose" v-html="page">
             </div>
         </div>

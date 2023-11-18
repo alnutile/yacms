@@ -24,7 +24,9 @@ defineProps({
                             <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
                                 About Me</h1>
                             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                                Some info here</p>
+                                I'm a seasoned software developer with a passion for bridging the gap between technology and practical solutions. With over a decade of experience in the tech industry,
+
+                            </p>
 
                         </div>
                         <div class="hidden lg:mt-0 lg:col-span-8 lg:flex">
