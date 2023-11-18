@@ -17,7 +17,7 @@ class PagesController extends Controller
         return inertia('Page/Index', [
             'pages' => PagesResource::collection($pages),
             'title' => 'Posts',
-            'search' => $search
+            'search' => $search,
         ]);
     }
 }

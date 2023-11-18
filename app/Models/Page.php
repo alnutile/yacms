@@ -4,13 +4,13 @@ namespace App\Models;
 
 use App\Events\PageUpdatedEvent;
 use Carbon\Carbon;
+use Facades\App\Domain\Render\RenderContent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Scout\Searchable;
-use Facades\App\Domain\Render\RenderContent;
 use Spatie\Tags\HasTags;
 
 /**
@@ -27,8 +27,8 @@ class Page extends Model
 {
     use HasFactory;
     use HasTags;
-    use SoftDeletes;
     use Searchable;
+    use SoftDeletes;
 
     protected $guarded = [];
 
@@ -40,10 +40,10 @@ class Page extends Model
         'blocks' => 'array',
     ];
 
-    public function scopePublished($query) {
-        return $query->where("published", true);
+    public function scopePublished($query)
+    {
+        return $query->where('published', true);
     }
-
 
     public function author(): BelongsTo
     {
