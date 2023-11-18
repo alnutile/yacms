@@ -25,4 +25,13 @@ class PageFactory extends Factory
             'blocks' => get_fixture('page_blocks.json'),
         ];
     }
+
+    public function published()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'published' => true,
+            ];
+        });
+    }
 }

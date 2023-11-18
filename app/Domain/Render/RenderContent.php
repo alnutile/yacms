@@ -52,7 +52,7 @@ class RenderContent
 
         return IntroDto::from([
             'intro' => $content,
-            'image' => $image
+            'image' => "/" . $image
         ]);
     }
 
