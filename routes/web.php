@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,6 +16,7 @@ use Inertia\Inertia;
 |
 */
 
+Route::get("/{slug}", PageController::class)->name("frontend");
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
