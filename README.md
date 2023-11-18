@@ -3,6 +3,9 @@
 So this will attempt to be a CMS that has 100% of it's docs in
 https://filamentphp.com/ and https://laravel.com (oh and JetStream) plus an libraries it uses.
 
+
+![](https://previews.dropbox.com/p/thumb/ACEyNT9TBMKVsYmwwtf5ajgMrerIPViFcEXTNeJ-slnc0XZddsh98VZf91kFpq6fWtoPn26dJZUxpG-e8Ic2SmoR7RRDvUJpNnsft1hFkEUHElnUI73MhQEDIgUh-Dn2Zq0fNjeHOhi_JqD_U_dX9rfAXdkoUnkLCWyx4uXOe5v8TGcl5Yo9pQfRD2DrqOnfSHw5h4CztINjDj2bUUIwkIAvGzZ_QeTGxw1uU8hTJzWutr9wZ79_VIo8mf9L9x0W3Oh4ZLHf_v5kvu73JGsdYQIxAnezeW_ZJZGmMmk6ap3zViIPteebQNAMdwYTIcPZziAALUdshih3ksyhLUa5HgaWF3p928sHGngGBPjpmzLStjXLl_dQq2OBbd6Z4GofOSrSU8ngV_-d2nN0GWx5b7InqpZC43G4H56mOCYxTsCoIQO5PWgBCDCQrDayaLkfK4JfI6WSyCI_7nezhpWRmkvC_w6_yhfKs28jzYf94IwHyTYw3uLitWS1U6poz_ZR1a4UIUrKTOydjVFDZVfJ4je7/p.gif)
+
 The goal will to not be like TwillCMS or Statamic CMS and have docs that seem to have some 'gray' areas
 or do things differently than Laravel and then not really explain how to do it. (looking at your TwillCMS).
 
@@ -20,6 +23,8 @@ Good luck!
   * Laravel
   * Filament
   * Flowbite (frontend helper)
+  * Spatie Tags
+  * Scout
   * Inertia/Vue if you want for front end else use what you want 
   * JetStream
 
